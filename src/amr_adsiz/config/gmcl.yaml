@@ -1,0 +1,61 @@
+use_optimal_filter: false
+use_intelligent_filter: false
+use_self_adaptive: false
+use_kld_sampling: true
+N_aux_particles: 10
+crossover_alpha: 0.5
+mutation_probability: 0.1
+energy_map_resolution_x: 0.2
+energy_map_resolution_y: 0.1
+energy_threshold_value: 0.05
+publish_ser: false
+
+min_particles: 200
+max_particles: 2000
+kld_err: 0.00001
+kld_z: 0.99999
+update_min_d: -1.0
+update_min_a: -1.0
+#update_min_d: 0.2
+#update_min_a: 0.5
+resample_interval: 1
+transform_tolerance: 0.1
+recovery_alpha_slow: 0.0
+recovery_alpha_fast: 0.0
+initial_pose_x: 0.0
+initial_pose_y: 0.0
+initial_pose_a: 0.0
+initial_cov_xx: 0.25
+initial_cov_yy: 0.25
+#initial_cov_aa: 0.0
+gui_publish_rate: 10.0
+save_pose_rate: 10.0
+use_map_topic: true
+first_map_only: false
+selective_resampling: false
+
+#Odometry model parameters
+odom_model_type: diff
+odom_alpha1: 0.2
+odom_alpha2: 0.2
+odom_alpha3: 0.2
+odom_alpha4: 0.2
+odom_alpha5: 0.2
+odom_frame_id: odom
+base_frame_id: chassis_link
+global_frame_id: map
+tf_broadcast: true
+
+# Laser model parameters
+laser_min_range: -1.0
+laser_max_range: -1.0
+laser_max_beams: 60
+
+laser_z_hit: 0.99
+laser_z_short: 0.05
+laser_z_max: 0.05
+laser_z_rand: 0.5
+laser_sigma_hit: 0.9
+laser_lambda_short: 0.1
+laser_likelihood_max_dist: 2.0
+laser_model_type: likelihood_field

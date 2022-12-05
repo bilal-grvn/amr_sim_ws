@@ -1,0 +1,1 @@
+controller_joint_names: ['', 'sag_teker_joint', 'sol_teker_joint', 'on_sag_tutucu_joint', 'on_sag_teker_joint', 'on_sol_tutucu_joint', 'on_sol_teker_joint', 'arka_sag_tutucu_joint', 'arka_sag_teker_joint', 'arka_sol_tutucu_joint', 'arka_sol_teker_joint', ]

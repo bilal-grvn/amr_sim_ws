@@ -1,0 +1,31 @@
+<launch>
+
+    <arg name="mod" default="reel"/>
+
+    <!-- <group if="$(eval mod == 'sim')">
+        <include file = "$(find amr_adsiz)/launch/gazebo.launch"/>
+    </group>
+
+    <group if="$(eval mod == 'reel')">
+        <include file = "$(find amr_adsiz)/launch/sensors.launch"/>
+    </group>
+
+   <include file = "$(find amr_adsiz)/launch/localization.launch"/> -->
+
+    <!-- <node pkg="gmapping" type="slam_gmapping" name="adsiz_slam_gmapping" output="screen">
+        <rosparam command="load" file="$(find amr_adsiz)/config/gmapping_ayarlar.yaml" />
+        <remap from="/scan" to ="/scan_main"/>
+	</node> -->
+
+    <!-- <node pkg="slam_karto" type="slam_karto" name="slam_karto" output="screen">
+        <rosparam command="load" file="$(find amr_adsiz)/config/karto_mapper_params.yaml" />
+        <remap from="/scan" to ="/scan_front_filtered"/>
+    </node>
+     -->
+    <node pkg = "joy" name = "f107_commander" type = "joy_node"/>
+    <node pkg = "amr_adsiz" name = "manuel_kontroller_node" type = "logitech_manuel_kontrol.py"/>
+    
+    <include file = "$(find amr_adsiz)/launch/$(arg mod)_rviz_display.launch"/>
+
+
+</launch>

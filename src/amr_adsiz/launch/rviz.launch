@@ -1,0 +1,18 @@
+<launch>
+  <arg name="model" />
+  <arg name="rviz_ayari" default="amr_haritalama.rviz" />
+  <param name="robot_description" textfile="$(find amr_adsiz)/urdf/amr_adsiz_sim.urdf" />
+
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" >
+    <param name="ignore_timestamp" value="false" />
+    <param name="use_tf_static" value="true" />
+    <param name="publish_frequency" value="40" />
+  </node>
+
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" >
+    <param name="rate" value="40" />
+  </node>
+
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find amr_adsiz)/rviz/$(arg rviz_ayari)" />
+  
+</launch>

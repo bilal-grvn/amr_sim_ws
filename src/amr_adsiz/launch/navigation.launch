@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+
+<launch>
+
+    <include file = "$(find amr_adsiz)/launch/gazebo.launch"/>
+
+    <include file = "$(find amr_adsiz)/launch/rviz.launch">
+        <arg name="rviz_ayari" value="amr_otonom.rviz" />
+    </include>
+
+    <arg name="map_file1" default="$(find amr_adsiz)/haritalarim/sim_harita_1.yaml"/>
+
+    <node name="map_server1" pkg="map_server" type="map_server" args="$(arg map_file1)" >
+        <param name="frame_id" value="map" />
+        <remap from="map" to="map"/>
+    </node>
+
+    <include file = "$(find amr_adsiz)/launch/localization.launch"/>
+
+    <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+        <rosparam file="$(find amr_adsiz)/config/costmap_common_params.yaml" command="load" ns="global_costmap" />
+        <rosparam file="$(find amr_adsiz)/config/costmap_common_params.yaml" command="load" ns="local_costmap" />
+        <rosparam file="$(find amr_adsiz)/config/local_costmap_params.yaml" command="load" />
+        <rosparam file="$(find amr_adsiz)/config/global_costmap_params.yaml" command="load" />
+        <rosparam file="$(find amr_adsiz)/config/base_local_planner_params.yaml" command="load" />
+        
+        <remap from="cmd_vel" to="cmd_vel"/>
+        <remap from="odom" to="odom"/>
+        <remap from="scan" to="/scan_front_filtered"/>
+        <remap from="map" to="map"/>
+    </node>
+  
+    <!-- <node pkg = "amr_adsiz" name = "manuel_control_nodes" type = "manuel_kontrol.py" /> -->
+<!-- launch-prefix="sudo -E" -->
+</launch>

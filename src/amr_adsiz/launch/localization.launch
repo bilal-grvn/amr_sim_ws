@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!-- Parametre açıklamaları icin http://wiki.ros.org/laser_scan_matcher ziyaret etmeyi unutmayiniz. -->
+
+<launch>
+
+    <!-- Lidar Verilerini Sinirlandirarak Birlestirilmektedir. -->
+
+    <node pkg="laser_filters" type="scan_to_scan_filter_chain" output="screen" name="front_laser_filter">
+        <rosparam command="load" file="$(find amr_adsiz)/config/sector_filter_front_lidar.yaml" />
+        <remap from="scan" to ="scan_front"/>
+        <remap from="scan_filtered" to ="scan_front_filtered"/>
+    </node>
+
+    <!-- <node pkg="laser_filters" type="scan_to_scan_filter_chain" output="screen" name="rear_laser_filter">
+        <rosparam command="load" file="$(find amr_adsiz)/config/sector_filter_rear_lidar.yaml" />
+        <remap from="scan" to ="scan_rear"/>
+        <remap from="scan_filtered" to ="scan_rear_filtered"/>
+    </node> -->
+
+	<!-- <node pkg="ira_laser_tools" name="laserscan_multi_merger" type="laserscan_multi_merger" output="screen">
+        <rosparam command="load" file="$(find amr_adsiz)/config/laserscans_merger.yaml" />
+	</node> -->
+
+    <!-- Odometri Verisi Uretilmektedir. -->
+    
+    <node pkg="laser_scan_matcher" type="laser_scan_matcher_node" name="amr_laser_scan_matcher" output="screen">
+        <rosparam command="load" file="$(find amr_adsiz)/config/laserscan_matcher.yaml" />
+        <!-- <remap from="scan" to ="scan_main"/> -->
+        <remap from="/scan" to ="/scan_front_filtered"/>
+    </node>
+
+    <!-- <node pkg = "amr_adsiz" name = "odom_node" type = "pose2d_to_odom.py"/> -->
+
+    <!-- <node pkg="amcl" type="amcl" name="amr_adsiz_amcl" output="screen">
+        <remap from="scan" to="/scan_main"/>
+        <remap from="map" to="map"/>
+        <rosparam command="load" file="$(find amr_adsiz)/config/amcl.yaml" />
+    </node> -->
+
+    <node pkg="gmcl" type="gmcl" name="amr_adsiz_gmcl" output="screen">
+        <rosparam command="load" file="$(find amr_adsiz)/config/gmcl.yaml" />
+        <remap from="scan" to="/scan_front_filtered"/>
+        <remap from="map" to="map"/>
+    </node>
+
+    <!-- Run The EKF localization node -->
+
+    <!-- <node pkg="robot_localization" type="ekf_localization_node" name="amr_adsiz_ekf_localization">
+        <rosparam command="load" file="$(find amr_adsiz_sim_kalman_filtre)/config/ekf_localization.yaml"/>
+    </node> -->
+
+</launch>                

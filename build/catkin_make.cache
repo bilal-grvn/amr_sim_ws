@@ -1,0 +1,2 @@
+amr_adsiz
+-DCATKIN_DEVEL_PREFIX=/home/bilal/MyGitHubProjects/git_me/amr_sim_ws/devel -DCMAKE_INSTALL_PREFIX=/home/bilal/MyGitHubProjects/git_me/amr_sim_ws/install -G Unix Makefiles

@@ -1,0 +1,15 @@
+<launch>
+
+  <param name="use_sim_time" value="true"/>
+  
+  <arg name = "dosya" default="-file $(find amr_adsiz)/urdf/amr_adsiz_sim.urdf"/>
+  <arg name = "init_pose" default = "-x 1 -y 1 -z 1"/>
+  <arg name = "argumanlar" default = "$(arg dosya) -urdf -model amr_adsiz $(arg init_pose)"/>
+  
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find amr_adsiz)/world/sanal_fabrika_alani.world"/>
+  </include>
+
+  <node name="spawn_model" pkg="gazebo_ros" type="spawn_model" args="$(arg argumanlar)" output="screen" />
+
+</launch>

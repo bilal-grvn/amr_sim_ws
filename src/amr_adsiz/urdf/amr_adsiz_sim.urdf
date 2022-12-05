@@ -1,0 +1,933 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-1-g15f4949  Build Version: 1.6.7594.29634
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot name="amr_adsiz_sim">
+
+  <material name="black">
+    <color rgba="0.0 0.0 0.0 1.0"/>
+  </material>
+
+  <material name="blue">
+    <color rgba="0.203125 0.23828125 0.28515625 1.0"/>
+  </material>
+
+  <material name="green">
+    <color rgba="0.0 0.8 0.0 1.0"/>
+  </material>
+
+  <material name="grey">
+    <color rgba="0.2 0.2 0.2 1.0"/>
+  </material>
+
+  <material name="orange">
+    <color rgba="1.0 0.423529411765 0.0392156862745 1.0"/>
+  </material>
+
+  <material name="brown">
+    <color rgba="0.870588235294 0.811764705882 0.764705882353 1.0"/>
+  </material>
+
+  <material name="red">
+    <color rgba="0.80078125 0.12890625 0.1328125 1.0"/>
+  </material>
+
+  <material name="white">
+    <color rgba="1.0 1.0 1.0 1.0"/>
+  </material>
+
+  <material name="yellow">
+    <color rgba="1 1 0 1"/>
+  </material>
+
+  <gazebo reference="chassis_link">
+    <material>Gazebo/White</material>
+  </gazebo>
+
+  <gazebo reference="sag_teker_link">
+    <material>Gazebo/Red</material>
+  </gazebo>
+
+  <gazebo reference="sol_teker_link">
+    <material>Gazebo/Red</material>
+  </gazebo>
+
+  <gazebo reference="on_sag_tutucu_link">
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+  <gazebo reference="on_sag_teker_link">
+    <material>Gazebo/Red</material>
+  </gazebo>
+
+  <gazebo reference="on_sol_tutucu_link">
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+  <gazebo reference="on_sol_teker_link">
+    <material>Gazebo/Red</material>
+  </gazebo>
+
+  <gazebo reference="arka_sag_tutucu_link">
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+  <gazebo reference="arka_sag_teker_link">
+    <material>Gazebo/Red</material>
+  </gazebo>
+
+  <gazebo reference="arka_sol_tutucu_link">
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+  <gazebo reference="arka_sol_teker_link">
+    <material>Gazebo/Red</material>
+  </gazebo>
+
+  <gazebo reference="rplidar_link_1">
+    <material>Gazebo/Red</material>
+  </gazebo>
+
+  <gazebo reference="rplidar_link_2">
+    <material>Gazebo/Red</material>
+  </gazebo>
+
+  <gazebo reference="imu_link">
+    <material>Gazebo/Red</material>
+  </gazebo>
+
+  <link name="chassis_link">
+    <inertial>
+      <origin
+        xyz="0.0 -0.000108062024404124 0.0669807514703995"
+        rpy="0 0 0" />
+      <mass
+        value="10" />
+      <inertia
+        ixx="0.237045998390451"
+        ixy="-0.000725330354858257"
+        ixz="-0.0014751628195524"
+        iyy="0.701311281208945"
+        iyz="3.10682404345573E-05"
+        izz="0.877731020869437" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://amr_adsiz/meshes/chassis_link.STL" />
+      </geometry>
+      <material
+        name="blue">
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://amr_adsiz/meshes/chassis_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="sag_teker_link">
+    <inertial>
+      <origin
+        xyz="-2.99889664261421E-08 -0.000107776579474477 1.85798732992848E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.742619479253151" />
+      <inertia
+        ixx="0.00185839652396693"
+        ixy="1.6254749332016E-09"
+        ixz="5.04509997352955E-10"
+        iyy="0.00185642805350024"
+        iyz="4.81968082851778E-07"
+        izz="0.00342823078649069" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://amr_adsiz/meshes/sag_teker_link.STL" />
+      </geometry>
+      <material
+        name="red">
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://amr_adsiz/meshes/sag_teker_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint  name="sag_teker_joint"
+    type="continuous">
+    <origin
+      xyz="0 -0.379999999999999 0"
+      rpy="-1.5707963267949 -1.05060120835241 0" />
+    <parent
+      link="chassis_link" />
+    <child
+      link="sag_teker_link" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+
+  <link name="sol_teker_link">
+    <inertial>
+      <origin
+        xyz="-2.99889664450206E-08 -0.000107776579473995 1.85798732992293E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.742619479253146" />
+      <inertia
+        ixx="0.00185839652396692"
+        ixy="1.62547493390633E-09"
+        ixz="5.04509997686025E-10"
+        iyy="0.00185642805350023"
+        iyz="4.81968082849548E-07"
+        izz="0.00342823078649066" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://amr_adsiz/meshes/sol_teker_link.STL" />
+      </geometry>
+      <material
+        name="red">
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://amr_adsiz/meshes/sol_teker_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint  name="sol_teker_joint"
+    type="continuous">
+    <origin
+      xyz="0 0.38 0"
+      rpy="-1.5707963267949 -1.05060120835241 0" />
+    <parent
+      link="chassis_link" />
+    <child
+      link="sol_teker_link" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+
+  <link name="on_sag_tutucu_link">
+    <inertial>
+      <origin
+        xyz="0.00513076819092001 7.52904488288131E-06 0.0306071432612776"
+        rpy="0 0 0" />
+      <mass
+        value="0.719371404400767" />
+      <inertia
+        ixx="0.000553451184742019"
+        ixy="2.01387315697384E-07"
+        ixz="1.43437168310862E-07"
+        iyy="0.000758441303621985"
+        iyz="-3.83579228408369E-08"
+        izz="0.00100552138356401" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://amr_adsiz/meshes/on_sag_tutucu_link.STL" />
+      </geometry>
+      <material
+        name="orange">
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://amr_adsiz/meshes/on_sag_tutucu_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="on_sag_tutucu_joint"
+    type="continuous">
+    <origin
+      xyz="0.412499999999999 -0.287499999999999 0.00022"
+      rpy="0 0 0" />
+    <parent
+      link="chassis_link" />
+    <child
+      link="on_sag_tutucu_link" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+
+  <link name="on_sag_teker_link">
+    <inertial>
+      <origin
+        xyz="0.000113208138536658 -0.000190157654729461 8.10358038148551E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.194095018430783" />
+      <inertia
+        ixx="0.000155058694911418"
+        ixy="5.15406215591096E-07"
+        ixz="-1.79221308041249E-07"
+        iyy="0.000154499610354878"
+        iyz="3.01044114363886E-07"
+        izz="0.000275131859894116" />
+    </inertial>
+
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://amr_adsiz/meshes/on_sag_teker_link.STL" />
+      </geometry>
+      <material
+        name="white">
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://amr_adsiz/meshes/on_sag_teker_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint  name="on_sag_teker_joint"
+    type="continuous">
+    <origin
+      xyz="-0.0649999999999994 0 -0.0400000249999986"
+      rpy="-1.5707963267949 -0.8480411676948 0" />
+    <parent
+      link="on_sag_tutucu_link" />
+    <child
+      link="on_sag_teker_link" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+
+  <link name="on_sol_tutucu_link">
+    <inertial>
+      <origin
+        xyz="0.00513076818936259 7.52904522954845E-06 0.0306071432572112"
+        rpy="0 0 0" />
+      <mass
+        value="0.719371404336981" />
+      <inertia
+        ixx="0.000553451184740493"
+        ixy="2.01387309638401E-07"
+        ixz="1.43437164512671E-07"
+        iyy="0.000758441303586185"
+        iyz="-3.83579221761341E-08"
+        izz="0.00100552138352772" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://amr_adsiz/meshes/on_sol_tutucu_link.STL" />
+      </geometry>
+      <material
+        name="orange">
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://amr_adsiz/meshes/on_sol_tutucu_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="on_sol_tutucu_joint"
+    type="continuous">
+    <origin
+      xyz="0.4125 0.287500000000001 0.00022"
+      rpy="0 0 0" />
+    <parent
+      link="chassis_link" />
+    <child
+      link="on_sol_tutucu_link" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+
+  <link name="on_sol_teker_link">
+    <inertial>
+      <origin
+        xyz="0.000113208138536686 -0.000190157654729461 8.10358038159653E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.194095018430783" />
+      <inertia
+        ixx="0.000155058694911275"
+        ixy="5.1540621559109E-07"
+        ixz="-1.79221308041222E-07"
+        iyy="0.000154499610354735"
+        iyz="3.01044114363842E-07"
+        izz="0.000275131859894116" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://amr_adsiz/meshes/on_sol_teker_link.STL" />
+      </geometry>
+      <material
+        name="white">
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://amr_adsiz/meshes/on_sol_teker_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint  name="on_sol_teker_joint"
+    type="continuous">
+    <origin
+      xyz="-0.0649999999999993 0 -0.0400000249999989"
+      rpy="-1.5707963267949 -0.8480411676948 0" />
+    <parent
+      link="on_sol_tutucu_link" />
+    <child
+      link="on_sol_teker_link" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+
+  <link name="arka_sag_tutucu_link">
+    <inertial>
+      <origin
+        xyz="0.0051307681909204 7.5290448833254E-06 0.030607143261281"
+        rpy="0 0 0" />
+      <mass
+        value="0.719371404400767" />
+      <inertia
+        ixx="0.000553451184742019"
+        ixy="2.01387315697544E-07"
+        ixz="1.43437168310866E-07"
+        iyy="0.000758441303621985"
+        iyz="-3.83579228408346E-08"
+        izz="0.00100552138356401" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://amr_adsiz/meshes/arka_sag_tutucu_link.STL" />
+      </geometry>
+      <material
+        name="orange">
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://amr_adsiz/meshes/arka_sag_tutucu_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint  name="arka_sag_tutucu_joint"
+    type="continuous">
+    <origin
+      xyz="-0.412500000000001 -0.287499999999999 0.00022"
+      rpy="0 0 0" />
+    <parent
+      link="chassis_link" />
+    <child
+      link="arka_sag_tutucu_link" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+
+  <link name="arka_sag_teker_link">
+    <inertial>
+      <origin
+        xyz="0.000113208138536491 -0.000190157654729739 8.10358038164649E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.194095018430783" />
+      <inertia
+        ixx="0.000155058694911275"
+        ixy="5.15406215591063E-07"
+        ixz="-1.79221308041212E-07"
+        iyy="0.000154499610354735"
+        iyz="3.01044114363838E-07"
+        izz="0.000275131859894116" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://amr_adsiz/meshes/arka_sag_teker_link.STL" />
+      </geometry>
+      <material
+        name="white">
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://amr_adsiz/meshes/arka_sag_teker_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint  name="arka_sag_teker_joint"
+    type="continuous">
+    <origin
+      xyz="-0.0649999999999995 0 -0.0400000249999993"
+      rpy="-1.5707963267949 -0.8480411676948 0" />
+    <parent
+      link="arka_sag_tutucu_link" />
+    <child
+      link="arka_sag_teker_link" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+
+  <link name="arka_sol_tutucu_link">
+    <inertial>
+      <origin
+        xyz="0.00513076819092073 7.52904488354744E-06 0.0306071432612809"
+        rpy="0 0 0" />
+      <mass
+        value="0.719371404400766" />
+      <inertia
+        ixx="0.000553451184742019"
+        ixy="2.01387315697528E-07"
+        ixz="1.43437168310884E-07"
+        iyy="0.000758441303621985"
+        iyz="-3.83579228407454E-08"
+        izz="0.00100552138356401" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://amr_adsiz/meshes/arka_sol_tutucu_link.STL" />
+      </geometry>
+      <material
+        name="orange">
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://amr_adsiz/meshes/arka_sol_tutucu_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint  name="arka_sol_tutucu_joint"
+    type="continuous">
+    <origin
+      xyz="-0.412500000000001 0.287500000000016 0.00022"
+      rpy="0 0 0" />
+    <parent
+      link="chassis_link" />
+    <child
+      link="arka_sol_tutucu_link" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+
+  <link name="arka_sol_teker_link">
+    <inertial>
+      <origin
+        xyz="0.000113208138536214 -0.000190157654730017 8.10358038161318E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.194095018430783" />
+      <inertia
+        ixx="0.000155058694911275"
+        ixy="5.15406215591096E-07"
+        ixz="-1.79221308041223E-07"
+        iyy="0.000154499610354735"
+        iyz="3.0104411436385E-07"
+        izz="0.000275131859894116" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://amr_adsiz/meshes/arka_sol_teker_link.STL" />
+      </geometry>
+      <material
+        name="white">
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://amr_adsiz/meshes/arka_sol_teker_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint  name="arka_sol_teker_joint"
+    type="continuous">
+    <origin
+      xyz="-0.0649999999999997 0 -0.0400000249999995"
+      rpy="-1.5707963267949 -0.8480411676948 0" />
+    <parent
+      link="arka_sol_tutucu_link" />
+    <child
+      link="arka_sol_teker_link" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+
+  <link name="main_lidar_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.0" />
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+    </inertial>
+    <!-- <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://amr_endustriyel_description/meshes/rplidar_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual> -->
+    <!-- <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://amr_endustriyel_description/meshes/rplidar_link.STL" />
+      </geometry>
+    </collision> -->
+  </link>
+
+  <joint name="main_lidar_joint" type="fixed">
+    <origin xyz="0 0 0.032" rpy="0 0 0" />
+    <parent link="chassis_link" />
+    <child link="main_lidar_link" />
+    <axis xyz="0 0 0" />
+  </joint>
+
+  <link name="front_lidar_link">
+    <inertial>
+      <mass value="0.1" />
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://amr_adsiz/meshes/rplidar_link.STL" />
+      </geometry>
+      <material
+        name="red">
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" /> 
+      <geometry>
+        <mesh filename="package://amr_adsiz/meshes/rplidar_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="front_lidar_joint" type="fixed">
+    <origin xyz="0.583 0.473 0.032" rpy="3.14 0 0" />
+    <parent link="chassis_link" />
+    <child link="front_lidar_link" />
+    <axis xyz="0 0 0" />
+  </joint>
+
+  <link name="rear_lidar_link">
+    <inertial>
+      <mass value="0.1" />
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://amr_adsiz/meshes/rplidar_link.STL" />
+      </geometry>
+      <material
+        name="red">
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" /> 
+      <geometry>
+        <mesh filename="package://amr_adsiz/meshes/rplidar_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="rear_lidar_joint" type="fixed">
+    <origin xyz="-0.583 -0.473 0.032" rpy="3.14 0 0" />
+    <parent link="chassis_link" />
+    <child link="rear_lidar_link" />
+    <axis xyz="0 0 0" />
+  </joint>
+
+  <!-- <link name="depth_cam_link">
+    <inertial>
+      <origin
+        xyz="0.000113208138536214 -0.000190157654730017 8.10358038161318E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.194095018430783" />
+      <inertia
+        ixx="0.000155058694911275"
+        ixy="5.15406215591096E-07"
+        ixz="-1.79221308041223E-07"
+        iyy="0.000154499610354735"
+        iyz="3.0104411436385E-07"
+        izz="0.000275131859894116" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://amr_adsiz/meshes/D435.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material
+        name="red">
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://amr_adsiz/meshes/D435.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint  name="depth_cam_joint"
+    type="fixed">
+    <origin
+      xyz="0.614 -0.043 -0.025"
+      rpy="1.55 0 1.57" />
+    <parent
+      link="chassis_link" />
+    <child
+      link="depth_cam_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint> -->
+
+  <link name="imu_link">
+    <visual>
+      <geometry>
+        <box size="0.05 0.05 0.05"/>
+      </geometry>
+      <material name="red"/>
+    </visual>
+
+    <collision>
+      <geometry>
+        <box size="0.01 0.01 0.01"/>
+      </geometry>
+    </collision>
+
+    <inertial>
+      <mass value="0.1" />
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+
+  <joint name="imu_joint" type="fixed">
+    <origin xyz="0 0 0.17" rpy="0 0 0"/>
+    <parent link="chassis_link"/>
+    <child link="imu_link"/>
+  </joint>
+
+  <gazebo>
+    <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
+      <updateRate>40.0</updateRate>
+      <leftJoint>sol_teker_joint</leftJoint>
+      <rightJoint>sag_teker_joint</rightJoint>
+      <wheelSeparation>0.7</wheelSeparation>
+      <wheelDiameter>0.15</wheelDiameter>
+      <wheelAcceleration>1000.0</wheelAcceleration>
+      <wheelTorque>50000</wheelTorque>
+      <commandTopic>cmd_vel</commandTopic>
+      <odometryTopic>odom1</odometryTopic>
+      <odometryFrame>odom</odometryFrame>
+      <robotBaseFrame>chassis_link</robotBaseFrame>
+      <odometrySource>world</odometrySource>
+      <publishWheelTF>false</publishWheelTF>
+      <publishOdomTF>false</publishOdomTF>
+      <publishWheelJointState>false</publishWheelJointState>     
+      <legacyMode>false</legacyMode>
+      <alwaysOn>true</alwaysOn>
+      <publishTf>0</publishTf>
+      <rosDebugLevel>na</rosDebugLevel>
+      <torque>1000</torque>
+    </plugin>
+  </gazebo>
+
+  <gazebo reference="imu_link">
+    <gravity>true</gravity>
+    <sensor name="imu_sensor" type="imu">
+      <always_on>true</always_on>
+      <update_rate>20.0</update_rate>
+      <visualize>true</visualize>
+      <topic>__default_topic__</topic>
+      <plugin filename="libgazebo_ros_imu_sensor.so" name="imu_plugin">
+        <topicName>imu</topicName>
+        <bodyName>imu_link</bodyName>
+        <updateRateHZ>20.0</updateRateHZ>
+        <gaussianNoise>0.0</gaussianNoise>
+        <xyzOffset>0 0 0</xyzOffset>
+        <rpyOffset>0 0 0</rpyOffset>
+        <frameName>imu_link</frameName>
+      </plugin>
+      <pose>0 0 0 0 0 0</pose>
+    </sensor>
+  </gazebo>
+
+  <gazebo reference="rear_lidar_link">
+    <sensor type="ray" name="head_rear_lidar_sensor">
+      <pose>0 0 0 0 0 0</pose>
+      <visualize>false</visualize>
+      <update_rate>10</update_rate>
+      <ray>
+        <scan>
+          <horizontal>
+            <samples>920</samples>
+            <resolution>1</resolution>
+            <min_angle>0</min_angle>
+            <max_angle>6.28319</max_angle>
+          </horizontal>
+        </scan>
+        <range>
+          <min>0.1</min>
+          <max>40.0</max>
+          <resolution>0.03</resolution>
+        </range>
+        <noise>
+          <type>gaussian</type>
+          <!-- Noise parameters based on published spec for Hokuyo laser
+               achieving "+-30mm" accuracy at range < 10m.  A mean of 0.0m and
+               stddev of 0.01m will put 99.7% of samples within 0.03m of the true
+               reading. -->
+          <mean>0.0</mean>
+          <stddev>0.01</stddev>
+        </noise>
+      </ray>
+      <plugin name="gazebo_ros_rear_lidar_controller" filename="libgazebo_ros_laser.so">
+        <topicName>scan_rear</topicName>
+        <frameName>rear_lidar_link</frameName>
+      </plugin>
+    </sensor>
+  </gazebo> 
+
+  <gazebo reference="front_lidar_link">
+    <sensor type="ray" name="head_front_lidar_sensor">
+      <pose>0 0 0 0 0 0</pose>
+      <visualize>false</visualize>
+      <update_rate>10</update_rate>
+      <ray>
+        <scan>
+          <horizontal>
+            <samples>920</samples>
+            <resolution>1</resolution>
+            <min_angle>0</min_angle>
+            <max_angle>6.28319</max_angle>
+          </horizontal>
+        </scan>
+        <range>
+          <min>0.1</min>
+          <max>40.0</max>
+          <resolution>0.03</resolution>
+        </range>
+        <noise>
+          <type>gaussian</type>
+          <!-- Noise parameters based on published spec for Hokuyo laser
+               achieving "+-30mm" accuracy at range < 10m.  A mean of 0.0m and
+               stddev of 0.01m will put 99.7% of samples within 0.03m of the true
+               reading. -->
+          <mean>0.0</mean>
+          <stddev>0.01</stddev>
+        </noise>
+      </ray>
+      <plugin name="gazebo_ros_front_lidar_controller" filename="libgazebo_ros_laser.so">
+        <topicName>scan_front</topicName>
+        <frameName>front_lidar_link</frameName>
+      </plugin>
+    </sensor>
+  </gazebo>
+
+</robot>

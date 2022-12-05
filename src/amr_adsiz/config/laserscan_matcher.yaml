@@ -1,0 +1,84 @@
+#Gerekli kordinatlar
+fixed_frame: odom
+base_frame: chassis_link
+
+#Hareket tahmini parametreleri
+use_imu:  false
+use_odom: false
+use_vel:  false
+
+#Pointcloud icin ayarlar (sensor_msgs/LaserScan kullanılmadıgında...)
+use_cloud_input: false
+cloud_range_min: 0.1
+cloud_range_max: 50.0
+
+#Keyframes
+#~kf_dist_linear (double, default: 0.10)
+# What distance the fixed frame needs to move 
+# before updating the keyframe scan (in meters)
+
+# ~kf_dist_angular (double, default: 0.175)
+# What angle the fixed frame needs to move 
+# before updating the keyframe scan (in radians).
+
+kf_dist_linear:   0.1
+kf_dist_angular:  0.175
+
+#Cikis ayarlari
+publish_tf:            true
+publish_pose:          true
+publish_pose_stamped:  false
+        
+#Scan matching temel ayarlari
+
+#~max_iterations (int, default: 10)
+# Maximum ICP cycle iterations
+
+# ~max_correspondence_dist (double, default: 0.3)
+# Maximum distance for a correspondence to be valid
+
+# ~max_angular_correction_deg (double, default: 45.0)
+# Maximum angular displacement between scans, in degrees
+
+# ~max_linear_correction (double, default: 0.50)
+# Maximum translation between scans (m)
+
+# ~epsilon_xy (double, default: 0.000001)
+# A threshold for stopping (m)
+
+# ~epsilon_theta (double, default: 0.000001)
+# A threshold for stopping (rad)
+
+# ~outliers_maxPerc (double, default: 0.90)
+# Percentage of correspondences to consider: 
+# if 0.90, always discard the top 10% of correspondences with more error
+
+max_iterations:                10         #default=10
+max_correspondence_dist:       0.3        #default=0.3
+max_angular_correction_deg:    45.0       #default=45.0
+max_linear_correction:         0.5        #default=0.5
+epsilon_xy:                    0.000001   #default=0.000001
+epsilon_theta:                 0.000001   #default=0.000001
+outliers_maxPerc:              0.9        #default=0.90
+
+#Scan matching gelismis ayarlari
+
+sigma:                         0.010      #default=0.010
+use_corr_tricks:               1          #default=1
+restart:                       0          #default=0
+restart_threshold_mean_error:  0.01       #default=0.01
+restart_dt:                    1.0        #default=1.0
+restart_dtheta:                0.1        #default=0.1
+clustering_threshold:          0.25       #default=0.25
+orientation_neighbourhood:     10         #default=10.0
+use_point_to_line_distance:    1          #default=1
+do_alpha_test:                 0          #default=0
+do_alpha_test_thresholdDeg:    20.0       #default=20.0
+outliers_adaptive_order:       0.7        #default=0.7     
+outliers_adaptive_mul:         2.0        #default=2.0
+do_visibility_test:            0          #default=0    
+outliers_remove_doubles:       1          #default=1 
+do_compute_covariance:         0          #default=0 
+debug_verify_trick:            0          #default=0 
+use_ml_weights:                0          #default=0 
+use_sigma_weights:             0          #default=0 
