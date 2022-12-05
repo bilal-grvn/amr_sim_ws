@@ -12,3 +12,7 @@
 * istenen açı ve mesafe degerleri arasında kısıtlama yapılmasında kullanılır
 
 ## pkg="gmcl"
+* AMCL benzeri lokalizasyonda görev yapar
+
+## pkg = "joy"
+* logitec kol için gerekli
